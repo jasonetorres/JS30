@@ -1,0 +1,56 @@
+:root{
+    --base: #87763b;
+    --spacing: 10px;
+    --blur: 10px;
+}
+img {
+    padding: var(--spacing);
+    background: var(--base);
+    filter: blur(var(--blur));
+  }
+
+.hl{
+    color: var(--base);
+}
+body {
+    text-align: center;
+    background: linear-gradient(179deg, rgba(229, 8, 142, 1) 0%, rgba(228, 91, 127, 1) 25%, rgba(227, 130, 99, 1) 50%, rgba(225, 154, 57, 1) 75%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    font-family: 'Pangolin', cursive;
+    font-family: 'Tektur', cursive;
+    font-family: 'VT323', monospace;
+    font-size: 50px;
+}
+
+.controls {
+  margin-bottom: 10px;
+  
+}
+
+input {
+  width: 100px;
+}
+/* Styling the slider track */
+input[type="range"] {
+    -webkit-appearance: none; /* Remove default styles on WebKit browsers */
+    background: #B276C9; /* Color of the track */
+    border-radius: 10px; /* Rounded corners for the track */
+  }
+  
+  /* Styling the slider thumb (handle) */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default styles on WebKit browsers */
+    appearance: none; /* Remove default styles on other browsers */
+    width: 20px; /* Width of the thumb */
+    height: 20px; /* Height of the thumb */
+    background: #65104C; /* Color of the thumb */
+    border-radius: 20px; /* Rounded shape for the thumb (circle) */
+    cursor: pointer; /* Cursor on hover */
+  }
+
+.audio{
+    
+}

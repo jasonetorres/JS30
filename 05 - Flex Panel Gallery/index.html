@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Who Needs a Radio?</title>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+  <link rel="icon" href="https://fav.farm/🔥" />
+  <link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+  <div class="panels">
+    <div class="panel panel1">
+      <p></p>
+      <p>MOCK</p>
+      <p>YEAH</p>
+    </div>
+    <div class="panel panel2">
+      <p></p>
+      <p>ING</p>
+      <p>YEAH</p>
+    </div>
+    <div class="panel panel3">
+      <p></p>
+      <p>BIRD</p>
+      <p>YEAH</p>
+    </div>
+    <div class="panel panel4">
+      <p></p>
+      <p>YEAH</p>
+      <p>YEAH</p>
+    </div>
+  </div>
+
+  <audio controls="autoplay" src="assets/dnd.mp3"></audio>
+
+
+  <script>
+    const panels = document.querySelectorAll(".panel");
+
+function toggleOpen() {
+  this.classList.toggle("open");
+}
+
+function toggleActive(e) {
+  if (e.propertyName.includes("flex")) {
+    this.classList.toggle("open-active");
+  }
+}
+
+panels.forEach((panel) => panel.addEventListener("click", toggleOpen));
+panels.forEach((panel) => panel.addEventListener("transitionend", toggleActive));
+
+  </script>
+
+</body>
+</html>
