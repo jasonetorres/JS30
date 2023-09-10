@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hold Shift to Check Multiple Checkboxes</title>
+  <link rel="icon" href="https://fav.farm/🔥" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
+</head>
+<body>
+  <style>
+
+html {
+  font-family: 'Rajdhani', sans-serif;
+  background-image: url("/10 - Hold Shift and Check Checkboxes/windows.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+    .inbox {
+      max-width: 400px;
+      margin: 50px auto;
+      background: #c1c1c1;
+      box-shadow: 5px 5px 0 rgba(0,0,0,0.1);
+      border: 3px solid #c1c1c1;
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid black;
+    }
+
+    .item:last-child {
+      border-bottom: 0;
+    }
+
+    input:checked + p {
+      background: #c1c1c1;
+      text-decoration: line-through;
+    }
+
+    input[type="checkbox"] {
+      margin: 20px;
+    }
+
+    p {
+      margin: 0;
+      padding: 20px;
+      transition: background 0.2s;
+      flex: 1;
+      font-family:'helvetica neue';
+      font-size: 20px;
+      font-weight: 200;
+      border-left: 1px solid black;
+    }
+  .header {
+  display: flex;
+  height: 30px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5F0E74;
+  padding: .1px 3px; /* Adjust the padding for the header */
+  color: white;
+  font-weight: bold;
+}
+.header p {
+  font-size: 14px; /* Adjust the font size for the header text */
+  border-left: 0px solid black;
+}
+.button {
+  background-color: #c1c1c1;
+  border: none;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 2px 7px;
+  border-radius: 1px;
+  margin-right: 5px; /* Add margin between buttons */
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ff9900;
+}
+
+.button:last-child {
+  margin-right: 0; /* Remove margin from the last button */
+  background-color: #c1c1c1;
+  color: black;
+}
+
+  </style>
+   <!--
+   The following is a common layout you would see in an email client.
+
+   When a user clicks a checkbox, holds Shift, and then clicks another checkbox a few rows down, all the checkboxes inbetween those two checkboxes should be checked.
+
+  -->
+  <div class="inbox">
+    <div class="header">
+      <p>Notion 95</p>
+      <button class="button">?</button>
+      <button class="button">_</button>
+      <button class="button">X</button>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>This is an inbox layout.</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Check one item</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Hold down your Shift key</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Check a lower item</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Everything in between should also be set to checked</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Try to do it without any libraries</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Just regular JavaScript</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Good Luck!</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Don't forget to tweet your result!</p>
+    </div>
+  </div>
+
+<script>
+  const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+    let lastChecked;
+
+    function handleCheck(e) {
+      let inBetween = false;
+
+      if (e.shiftKey && this.checked) {
+        checkboxes.forEach(checkbox => {
+          if (checkbox === this || checkbox === lastChecked) {
+            inBetween = !inBetween;
+          }
+
+          if (inBetween) {
+            checkbox.checked = true;
+          }
+        });
+      }
+
+      lastChecked = this;
+    }
+
+    checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
+  </script>
+
+</script>
+</body>
+</html>
